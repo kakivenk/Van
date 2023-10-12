@@ -1,0 +1,24 @@
+<html>
+<head>
+<title> nutrition status </title>
+</head>
+<body>
+
+<h1 style="border:blue;border-width:5px;border-style:ridge;" ><center><p style="color:green;font-size:45px;"> NUTRITION STATUS</p></center> </h1>
+<p style="color:black;font-size:40px;"> BODY MASS INDEX(BMI)</p>
+<form action="xyz.php" method="post">
+<center>
+<p> <label for="inp1" style="font-size:30px;" > Weight : </label>
+<input type="number" name="inp1" id="inp1" placeholder="in kilogram" >
+</p>
+<p> <label for="inp2" style="font-size:30px;" >Height: </label>
+<input type="number" name="inp2" id="inp2" placeholder="in meter">
+</p>
+<p>
+<input type="submit" id="search" value="calculate">
+</p>
+</center>
+</form>
+
+</body>
+</html>
