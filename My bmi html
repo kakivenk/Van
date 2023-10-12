@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <form method="post" action="bmi_calculator.php">
+        <label for="height">Height (cm): </label>
+        <input type="text" name="height" id="height" placeholder="Enter height in cm"><br>
+
+        <label for="weight">Weight (kg): </label>
+        <input type="text" name="weight" id="weight" placeholder="Enter weight in kg"><br>
+
+        <button type="submit">Calculate BMI</button>
+    </form>
+</body>
+</html>
