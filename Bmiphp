@@ -1,0 +1,31 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $height = $_POST['height'] / 100; // Convert height to meters
+    $weight = $_POST['weight'];
+
+    if ($height > 0 && $weight > 0) {
+        $bmi = calculateBMI($height, $weight);
+        echo "Your BMI is: " . number_format($bmi, 1);
+        echo "<br>";
+        echo "BMI Category: " . interpretBMI($bmi);
+    } else {
+        echo "Please enter valid height and weight.";
+    }
+}
+
+function calculateBMI($height, $weight) {
+    return $weight / ($height * $height);
+}
+
+function interpretBMI($bmi) {
+    if ($bmi < 18.5) {
+        return "Underweight";
+    } elseif ($bmi >= 18.5 && $bmi < 24.9) {
+        return "Normal weight";
+    } elseif ($bmi >= 25 && $bmi < 29.9) {
+        return "Overweight";
+    } else {
+        return "Obese";
+    }
+}
+?>
