@@ -1,0 +1,19 @@
+<p> <label for="inp3" style="font-size:30px;" >Age: </label>
+<input type="number" name="inp3" id="inp3" placeholder="2 to 120">
+</p>
+<style>
+/* Increase radio button's size */
+input[type='radio']{
+    width: 20px;
+    height: 20px;
+}
+</style>
+<p> <label for="gender" style="font-size:30px;" >Gender: </label><br>
+<input type="radio"  id="gender" name="gender">
+<label for="gender" class="largerlabel">Male</label><br>
+<input type="radio"  id="gender" name="gender">
+<label for="gender" class="largerlabel">FeMale</label>
+</p>
+<p>
+<input type="submit" style="font-size:25px;" id="search" value="Calculate">
+</p>
