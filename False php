@@ -1,0 +1,20 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve form data
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
+    $weight = $_POST['weight'];
+    $height = $_POST['height'] / 100; // Convert height to meters
+
+    // Calculate BMI
+    $bmi = $weight / ($height * $height);
+
+    // Display results
+    echo "<h2>Results</h2>";
+    echo "Age: $age years<br>";
+    echo "Gender: $gender<br>";
+    echo "Weight: $weight kg<br>";
+    echo "Height: $height m<br>";
+    echo "BMI: $bmi<br>";
+}
+?>
