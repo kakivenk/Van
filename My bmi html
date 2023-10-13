@@ -1,18 +1,32 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>BMI Calculator</title>
+<title> nutrition status </title>
 </head>
 <body>
-    <h1>BMI Calculator</h1>
-    <form method="post" action="bmi_calculator.php">
-        <label for="height">Height (cm): </label>
-        <input type="text" name="height" id="height" placeholder="Enter height in cm"><br>
+<h1 style="border:blue;border-width:5px;border-style:ridge;" ><center><p style="color:green;font-size:45px;"> NUTRITION STATUS</p></center> </h1>
+<p style="color:black;font-size:40px;"> BODY MASS INDEX(BMI)</p>
+<form action="xyz.php" method="post">
+<center>
+<p> <label for="inp1" style="font-size:30px;" > Weight : </label>
+<input type="number" name="inp1" id="inp1" placeholder="in kilogram" >
+</p>
+<p> <label for="inp2" style="font-size:30px;" >Height: </label>
+<input type="number" name="inp2" id="inp2" placeholder="in meter">
+</p>
+<p> <label for="inp3" style="font-size:30px;" >Age: </label>
+<input type="number" name="inp3" id="inp3" placeholder="2 to 120">
+</p>
+<p> <label for="gender" style="font-size:30px;" >Gender: </label>
+<select name="gender" id="gender" style="font-size:20px;">
+<option value="male" style="font-size:20px;">Male</option>
+<option value="female" style="font-size:20px;">FeMale</option>
+</p>
+<br>
+<p>
+<input type="submit" style="font-size:25px;" id="search" value="Calculate">
+</p>
+</center>
+</form>
 
-        <label for="weight">Weight (kg): </label>
-        <input type="text" name="weight" id="weight" placeholder="Enter weight in kg"><br>
-
-        <button type="submit">Calculate BMI</button>
-    </form>
 </body>
 </html>
