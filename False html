@@ -27,3 +27,10 @@
   </form>
 </body>
 </html>
+
+
+if(isset($_POST['gender'])){
+    $gender = $_POST['gender'];
+echo "Gender: $gender";}
+else{
+echo "Gender not selected";}
