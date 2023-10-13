@@ -2,6 +2,8 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $inp1 = $_POST['inp1'];
     $inp2 = $_POST['inp2']; 
+    $inp3 = $_POST['inp3'];
+    $gender = $_POST['gender'];
 
      if ($inp2 > 0 && $inp1 > 0) {
         $bmi = calculateBMI($inp1, $inp2);
@@ -19,13 +21,15 @@ function calculateBMI($inp1, $inp2) {
 
 function interpretBMI($bmi) {
     if ($bmi < 18.5) {
-        return "Underweight";
+        return "Underweight<br>";
     } elseif ($bmi >= 18.5 && $bmi < 24.9) {
-        return "Normal weight";
+        return "Normal weight<br>";
     } elseif ($bmi >= 25 && $bmi < 29.9) {
-        return "Overweight";
+        return "Overweight<br>";
     } else {
-        return "Obese";
+        return "Obese<br>";
     }
 }
+echo "Age: $inp3 years<br>";
+echo "Gender: $gender <br>";
 ?>
