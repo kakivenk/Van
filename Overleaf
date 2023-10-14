@@ -1,0 +1,7 @@
+\section{Git Diff}
+\begin{figure}[!htbp]
+   \centering
+    \includegraphics[width=17cm,height=7cm]{img5.png}
+    \caption{Using the command "git diff \#hash1 \#hash2" gives the difference between the changes made in the file during those commits where the first hash value is source and the second is destination.}
+    \label{fig:figfive}
+\end{figure}
