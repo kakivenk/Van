@@ -18,3 +18,7 @@ echo ("<p style='font-size:30px'>Gender: $gender</p>");}
 else{
 echo ("<p style='font-size:30px'>Gender not selected</p>");
 }
+?>
+</p>
+ </body>
+ </html>
