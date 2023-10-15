@@ -1,0 +1,47 @@
+b5f553e (HEAD -> Vaneesha, origin/Vaneesha) HEAD@{0}: checkout: moving from main to Vaneesha
+9a6db5d (origin/main, main) HEAD@{1}: checkout: moving from main to main
+9a6db5d (origin/main, main) HEAD@{2}: commit: change in BMI
+8d5c619 HEAD@{3}: pull origin main: Fast-forward
+b5f553e (HEAD -> Vaneesha, origin/Vaneesha) HEAD@{4}: checkout: moving from main to main
+b5f553e (HEAD -> Vaneesha, origin/Vaneesha) HEAD@{5}: rebase (finish): returning to refs/heads/main
+b5f553e (HEAD -> Vaneesha, origin/Vaneesha) HEAD@{6}: rebase (start): checkout Vaneesha
+ffe967a (vaneesha) HEAD@{7}: checkout: moving from Vaneesha to main
+b5f553e (HEAD -> Vaneesha, origin/Vaneesha) HEAD@{8}: commit: final php and html of BMI
+090a8d2 HEAD@{9}: commit: commit14
+7f3266e HEAD@{10}: commit: commit13
+3f3efd6 HEAD@{11}: commit: commit12
+735912a HEAD@{12}: commit: commit11
+6a7d428 HEAD@{13}: commit: commit10
+5a10f86 HEAD@{14}: commit: commit9
+327c245 (tag: v1.0) HEAD@{15}: reset: moving to HEAD~1
+aa359ec HEAD@{16}: reset: moving to HEAD~1
+cae7478 HEAD@{17}: checkout: moving from main to Vaneesha
+ffe967a (vaneesha) HEAD@{18}: checkout: moving from Vaneesha to main
+cae7478 HEAD@{19}: reset: moving to HEAD
+cae7478 HEAD@{20}: checkout: moving from Vaneesha to Vaneesha
+cae7478 HEAD@{21}: checkout: moving from Vaneesha to Vaneesha
+cae7478 HEAD@{22}: reset: moving to HEAD
+cae7478 HEAD@{23}: commit: commit10
+aa359ec HEAD@{24}: reset: moving to aa359ec
+314402b HEAD@{25}: commit: commit10
+aa359ec HEAD@{26}: commit: commit9
+327c245 (tag: v1.0) HEAD@{27}: checkout: moving from Vaneesha to Vaneesha
+327c245 (tag: v1.0) HEAD@{28}: reset: moving to HEAD~1
+8c482ce HEAD@{29}: commit: commit9
+327c245 (tag: v1.0) HEAD@{30}: reset: moving to HEAD~1
+ca7e9ff HEAD@{31}: checkout: moving from Vaneesha to Vaneesha
+ca7e9ff HEAD@{32}: commit: commit9
+327c245 (tag: v1.0) HEAD@{33}: reset: moving to HEAD~1
+c81923f (tag: v2.0) HEAD@{34}: reset: moving to HEAD~1
+1fb9817 HEAD@{35}: commit: commit11
+c81923f (tag: v2.0) HEAD@{36}: commit: commit9
+327c245 (tag: v1.0) HEAD@{37}: commit: commit8
+2531d16 HEAD@{38}: commit: commit7
+b5a09ec HEAD@{39}: commit: commit6
+6b8e9d0 HEAD@{40}: commit: commit5
+91c3cef HEAD@{41}: commit: commit4
+7f18c3d HEAD@{42}: commit: commit3
+573db4b HEAD@{43}: commit: commit2
+792e8c3 HEAD@{44}: commit: First commit in branch Vaneesha
+ffe967a (vaneesha) HEAD@{45}: checkout: moving from main to Vaneesha
+ffe967a (vaneesha) HEAD@{46}: commit (initial): first commit
