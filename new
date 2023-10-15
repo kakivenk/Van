@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> nutrition status </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<form action="xyz.php" method="post">
+<h1 style="border:#87CEEB;border-width:5px;border-style:ridge;"><center><p style="color:white;font-size:45px;"> NUTRITION STATUS</p></center> </h1>
+
+<h1 style="border:#87CEEB;border-width:5px;border-style:ridge;">Age &Gender</h1>
+<p> <label for="inp5" style="font-size:30px;" >Age: </label>
+<input type="number" name="inp5" id="inp5" placeholder="2 to 120">
+</p>
+<p> <label for="gender" style="font-size:30px;" >Gender: </label>
+<input type="radio" id="male" name="gender" value="male">
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="female">
+<label for="female">Female</label>
+</p>
+
+<center>
+<h1 style="border:#87CEEB;border-width:5px;border-style:ridge;">BMI</h1>
+<p> <label for="inp1" style="font-size:30px;" > Weight : </label>
+<input type="number" name="inp1" id="inp1" placeholder="in kilogram" >
+</p>
+<p> <label for="inp2" style="font-size:30px;" >Height: </label>
+<input type="number" name="inp2" id="inp2" placeholder="in meter">
+</p>
+</center>
