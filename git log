@@ -1,0 +1,149 @@
+commit b5f553e0b4ecfecee5bee26ec7d3f64388b66097 (HEAD -> Vaneesha, origin/Vaneesha)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 11:18:44 2023 +0530
+
+    final php and html of BMI
+
+commit 090a8d21c3e98d14896392e704853c3bdc2b69b9
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:45:19 2023 +0530
+
+    commit14
+
+commit 7f3266e77e66aa1850312b2184878a7bef70919c
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:44:22 2023 +0530
+
+    commit13
+
+commit 3f3efd6453b5984b6f9fc7d9aec993dc44d89ecb
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:42:46 2023 +0530
+
+    commit12
+
+commit 735912a31f4ae6103a304a62e8ac3ce285c29f43
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:42:03 2023 +0530
+
+    commit11
+
+commit 6a7d428d2a235aa38e7f23b72c997693a6cfef27
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:41:13 2023 +0530
+
+    commit10
+
+commit 5a10f86f0d9c2120b0549ae89d864193df2091d4
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:33:14 2023 +0530
+
+    commit9
+
+commit 327c245385e55d384172582cc93bfd0bbdd9cdd8 (tag: v1.0)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 13:11:27 2023 +0530
+
+    commit8
+
+commit 2531d16caf675898c6f5ec065f895af717746b25
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 12:52:35 2023 +0530
+
+    commit7
+kvr1@kvr1-VirtualBox:~/Desktop/proj/git-project$ git log
+commit b5f553e0b4ecfecee5bee26ec7d3f64388b66097 (HEAD -> Vaneesha, origin/Vaneesha)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 11:18:44 2023 +0530
+
+    final php and html of BMI
+
+commit 090a8d21c3e98d14896392e704853c3bdc2b69b9
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:45:19 2023 +0530
+
+    commit14
+
+commit 7f3266e77e66aa1850312b2184878a7bef70919c
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:44:22 2023 +0530
+
+    commit13
+
+commit 3f3efd6453b5984b6f9fc7d9aec993dc44d89ecb
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:42:46 2023 +0530
+
+    commit12
+
+commit 735912a31f4ae6103a304a62e8ac3ce285c29f43
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:42:03 2023 +0530
+
+    commit11
+
+commit 6a7d428d2a235aa38e7f23b72c997693a6cfef27
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:41:13 2023 +0530
+
+    commit10
+
+commit 5a10f86f0d9c2120b0549ae89d864193df2091d4
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:33:14 2023 +0530
+
+    commit9
+
+commit 327c245385e55d384172582cc93bfd0bbdd9cdd8 (tag: v1.0)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 13:11:27 2023 +0530
+
+    commit8
+
+commit 2531d16caf675898c6f5ec065f895af717746b25
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 12:52:35 2023 +0530
+
+    commit7
+
+commit b5a09ec51571b69caa322a149d9a2094e8404203
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 12:35:47 2023 +0530
+
+    commit6
+
+commit 6b8e9d0c479729a08cf9059178d4197751e2af8c
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 12:15:07 2023 +0530
+
+    commit5
+
+commit 91c3cefe024a3472ef2fca049a31f4fb5ea2b21b
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 09:40:25 2023 +0530
+
+    commit4
+
+commit 7f18c3ddb5f64d6affb9ecce57310ba8b75c2d21
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Fri Oct 13 21:17:42 2023 +0530
+
+    commit3
+
+commit 573db4be8195e13d0dd2ea1c10c96bff16dcb4ce
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Fri Oct 13 21:13:35 2023 +0530
+
+    commit2
+
+commit 792e8c33d42e46c32511cb31a31c77c7328fade5
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Fri Oct 13 13:11:26 2023 +0530
+
+    First commit in branch Vaneesha
+
+commit ffe967a1f3aef7acc5682d869043972f816022b7 (vaneesha)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Wed Oct 11 12:05:39 2023 +0530
+
+    first commit
