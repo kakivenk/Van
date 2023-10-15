@@ -1,0 +1,261 @@
+commit 9a6db5d04844871f68efaec8dce3d4e00adb411e (HEAD -> main, origin/main)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 16:05:33 2023 +0530
+
+    change in BMI
+
+commit 8d5c6192391c0a58fe1d450b13b5e4ec49f179f2
+Merge: e44c0df b5f553e
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sun Oct 15 15:55:21 2023 +0530
+
+    merging origin/main into main after resolving conflicts
+
+commit b5f553e0b4ecfecee5bee26ec7d3f64388b66097 (origin/Vaneesha, Vaneesha)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 11:18:44 2023 +0530
+
+    final php and html of BMI
+
+commit e44c0dfeeb008e131899977b0fc9399361f9e3d4
+Merge: 335fe78 1c7136d
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sun Oct 15 09:14:05 2023 +0530
+
+    merging php into html
+
+commit 335fe78d914d53424b928019083dcdaea13d1d67
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sun Oct 15 09:13:27 2023 +0530
+
+    final html of exercise
+
+commit 1c7136d6c64e935ca795f0ee043b2677a4f4e4ca
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sun Oct 15 08:53:37 2023 +0530
+
+    final php of exercise
+
+commit 163d6a6ff76d5fab87a47a015208759be819c886
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sun Oct 15 08:47:11 2023 +0530
+
+    changes in php
+
+commit 090a8d21c3e98d14896392e704853c3bdc2b69b9
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:45:19 2023 +0530
+
+    commit14
+
+commit 7f3266e77e66aa1850312b2184878a7bef70919c
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:44:22 2023 +0530
+
+    commit13
+
+commit 3f3efd6453b5984b6f9fc7d9aec993dc44d89ecb
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:42:46 2023 +0530
+
+    commit12
+
+commit 735912a31f4ae6103a304a62e8ac3ce285c29f43
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:42:03 2023 +0530
+
+    commit11
+
+commit 6a7d428d2a235aa38e7f23b72c997693a6cfef27
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:41:13 2023 +0530
+
+    commit10
+
+commit 5a10f86f0d9c2120b0549ae89d864193df2091d4
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sun Oct 15 08:33:14 2023 +0530
+
+    commit9
+
+commit de08923cb0483ea54957724c57b2acb93f190e3d
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sun Oct 15 07:27:15 2023 +0530
+
+    my php changes
+
+commit d468aabba5e7e17e99fdedc198953993499c2a1d
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sat Oct 14 15:41:18 2023 +0530
+
+    reverting a commit increasing size
+
+commit d7734ebb17ca5b5295647ac981a597f234a9f5af
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sat Oct 14 15:38:48 2023 +0530
+
+    checking size
+
+commit 327c245385e55d384172582cc93bfd0bbdd9cdd8 (tag: v1.0)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 13:11:27 2023 +0530
+
+    commit8
+
+commit 2531d16caf675898c6f5ec065f895af717746b25
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 12:52:35 2023 +0530
+
+    commit7
+
+commit b5a09ec51571b69caa322a149d9a2094e8404203
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 12:35:47 2023 +0530
+
+    commit6
+
+commit 4c0c5bbf6e3dabe9588882d616d1aab07df08b78
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sat Oct 14 12:16:26 2023 +0530
+
+    increasing size
+
+commit 6b8e9d0c479729a08cf9059178d4197751e2af8c
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 12:15:07 2023 +0530
+
+    commit5
+
+commit ca320edd62e2aadaace3b9360747fd7e6c1ef60b
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Sat Oct 14 10:44:21 2023 +0530
+
+    adding php
+
+commit 91c3cefe024a3472ef2fca049a31f4fb5ea2b21b
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Sat Oct 14 09:40:25 2023 +0530
+
+    commit4
+
+commit 7f18c3ddb5f64d6affb9ecce57310ba8b75c2d21
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Fri Oct 13 21:17:42 2023 +0530
+
+    commit3
+
+commit 573db4be8195e13d0dd2ea1c10c96bff16dcb4ce
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Fri Oct 13 21:13:35 2023 +0530
+
+    commit2
+
+commit 1cf21b4bc5f43b8c5c5cab5cf4eb6d0981674721
+Merge: 51eb108 efd590c
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Fri Oct 13 20:33:38 2023 +0530
+
+    Merge remote-tracking branch 'origin/hema' into hema
+
+commit 51eb108ffd5896874a7f8f9df4f77866b6c854bd
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Fri Oct 13 13:24:13 2023 +0530
+
+    third commit on newone
+
+commit 175d7121c21c93c4edbd3d805ffaef0b1cededee
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 11:37:18 2023 +0530
+
+    cherry picking first commit on newone
+
+commit bbc8584d2b3ec48ac962de4a6a43ec111dfb89f0
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 11:40:49 2023 +0530
+
+    second commit on newone
+
+commit 537d3bc1cba594dd51781c8bbffb107060bcc4ab
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 11:37:18 2023 +0530
+
+    first commit on newone
+
+commit ff49cc4e7c05f83d379f8f4664c46c596c351330
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Fri Oct 13 19:37:34 2023 +0530
+
+    fifth commit on varshini
+
+commit efd590ccf2e61739fd5d27df1f410b50ff191b7e
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Fri Oct 13 13:24:13 2023 +0530
+
+    third commit on newone
+
+commit 792e8c33d42e46c32511cb31a31c77c7328fade5
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Fri Oct 13 13:11:26 2023 +0530
+
+    First commit in branch Vaneesha
+
+commit 82c4e4b31cf842b7809a1f77a42ee2b90767e50c
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 22:44:14 2023 +0530
+
+    fourth commit on varshini
+
+commit f10a170641b7ae618acd8939ad83691daab0c4e0
+Merge: 8ac5031 00ca4c2
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 17:36:39 2023 +0530
+
+    Merge remote-tracking branch 'origin/varshini' into varshini
+
+commit 5a201440de81f011a4a7cf6044fbd54cc52c1fc8
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 11:37:18 2023 +0530
+
+    cherry picking first commit on newone
+
+commit ed4c2157c79bdbe1693db9bf0ff179836ce57001
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 11:40:49 2023 +0530
+
+    second commit on newone
+
+commit ab8ed30c3433bffb1a0c94b642c67b0cf0e49820
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 11:37:18 2023 +0530
+
+    first commit on newone
+
+commit 8ac50316de53ea3aa7f09c35f7b83ceddc73cce7
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 11:02:00 2023 +0530
+
+    third commit on varshini
+
+commit a54047d445837d241246f4e98ee002932188675f
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Thu Oct 12 11:00:12 2023 +0530
+
+    second commit on varshini
+
+commit 8534631339fddf5363e01caf471b12cefeb5b513
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Wed Oct 11 15:59:18 2023 +0530
+
+    first commit on varshini
+
+commit 00ca4c29c33ac4eab702438b81ccbe1d664a2a3d
+Author: mallarapuhemavarshini <mallarapuhemavarshini@gmail.com>
+Date:   Wed Oct 11 15:59:18 2023 +0530
+
+    second commit
+
+commit ffe967a1f3aef7acc5682d869043972f816022b7 (vaneesha)
+Author: kakivenk <kakivenk@iitbhilai.ac.in>
+Date:   Wed Oct 11 12:05:39 2023 +0530
+
+    first commit
