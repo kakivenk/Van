@@ -1,0 +1,74 @@
+I = [4, 4, 4, 4, 4];
+s = length(I);
+fprintf('List Of I:\n');
+for i = 1:s
+    fprintf('%d ', I(i));
+end
+
+I1 = zeros(1, s);
+I1(1) = I(1);
+fprintf('\nFirst order I:\n');
+for i = 1:s-1
+    I1(i+1) = I1(i) + I(i+1);
+end
+
+for i=1:s
+    fprintf('%d ', I1(i));
+end
+
+DC = [50, 50, 50, 50, 55];
+s=length(DC);
+fprintf('List of DC:\n');
+for i=1:s
+    fprintf('%d ', DC(i));
+end
+DC1 = zeros(1, s);
+DC1(1) = DC(1);
+fprintf('\nFirst order DC:\n');
+for i = 1:s-1
+    DC1(i+1) = DC1(i) + DC(i+1);
+end
+
+for i=1:s
+    fprintf('%d ', DC1(i));
+end
+
+GP = [0.015, 0.02, 0.025, 0.03, 0.015];
+s=length(GP);
+fprintf('List of GP:\n');
+for i=1:s
+    fprintf('%.3f ', GP(i));
+end
+GP1 = zeros(1, s);
+GP1(1) = GP(1);
+fprintf('\nFirst order GP:\n');
+for i = 1:s-1
+    GP1(i+1) = GP1(i) + GP(i+1);
+end
+
+for i=1:s
+    fprintf('%.3f ', GP1(i));
+end
+
+MRR = [3.392, 3.847, 3.878, 3.708, 4.083];
+s=length(MRR);
+fprintf('List of MRR:\n');
+for i=1:s
+    fprintf('%.3f ', MRR(i));
+end
+MRR1 = zeros(1, s);
+MRR1(1) = MRR(1);
+fprintf('\nFirst order MRR:\n');
+for i = 1:s-1
+    MRR1(i+1) = MRR1(i) + MRR(i+1);
+end
+
+for i=1:s
+    fprintf('%.3f ', MRR1(i));
+end
+Z=zeros(2,s);
+fprintf('\nAverage of MRR1:\n');
+for i=2:s
+    Z(i)=(MRR1(i-1)+MRR1(i))/2;
+    fprintf('%.4f ', Z(i));
+end
