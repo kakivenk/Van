@@ -85,3 +85,33 @@ for i=1:s
     Ipow(i)=I1(i).^gamma1(i);
     fprintf('%f ', Ipow(i));
 end
+DCpow=zeros(1,s);
+fprintf('\nPower of DC:\n');
+for i=1:s
+    DCpow(i)=DC1(i).^gamma2(i);
+    fprintf('%f ',DCpow(i));
+end
+GPpow=zeros(1,s);
+fprintf('\nPower of GP:\n');
+for i=1:s
+    GPpow(i)=GP1(i).^gamma3(i);
+    fprintf('%f ',GPpow(i));
+end
+Isin=zeros(1,s);
+fprintf('\nSin of I:\n');
+for i=1:s
+    Isin(i)=I1(i)*(sin(2*p1(i)));
+    fprintf('%.9f ',Isin(i));
+end
+DCsin=zeros(1,s);
+fprintf('\nSin of DC:\n');
+for i=1:s
+    DCsin(i)=DC1(i)*(sin(2*p2(i)));
+    fprintf('%.9f ',DCsin(i));
+end
+GPsin=zeros(1,s);
+fprintf('\nSin of GP:\n');
+for i=1:s
+    GPsin(i)=GP1(i)*(sin(2*p3(i)));
+    fprintf('%.9f ',GPsin(i));
+end
