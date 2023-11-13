@@ -73,12 +73,48 @@ for i=2:s
     fprintf('%.4f ', Z(i));
 end
 
-gamma1=[0.75, 0.75, 0.75, 0.75, 0.75];
-gamma2=[0.87, 0.87, 0.87, 0.87, 0.87];
-gamma3=[1.05, 1.05, 1.05, 1.05, 1.05];
-p1=[1.43, 1.43, 1.43, 1.43, 1.43];
-p2=[1.98, 1.98, 1.98, 1.98, 1.98];
-p3=[9.68, 9.68, 9.68, 9.68, 9.68];
+fprintf('\ngamma1:');
+lowerLimit = 0;
+upperLimit = 1;
+arraySize = [1, 5];
+gamma1 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
+fprintf('%f ',gamma1);
+
+fprintf('\ngamma2:');
+lowerLimit = 0.5;
+upperLimit = 1.5;
+arraySize = [1, 5];
+gamma2 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
+fprintf('%f ',gamma2);
+
+fprintf('\ngamma3:');
+lowerLimit = 0.5;
+upperLimit = 1.5;
+arraySize = [1, 5];
+gamma3 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
+fprintf('%f ',gamma3);
+
+fprintf('\np1:');
+lowerLimit = 0.5;
+upperLimit = 2;
+arraySize = [1, 5];
+p1 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
+fprintf('%f ',p1);
+
+fprintf('\np2:');
+lowerLimit = 1;
+upperLimit = 2.5;
+arraySize = [1, 5];
+p2 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
+fprintf('%f ',p2);
+
+fprintf('\np3:');
+lowerLimit = 1;
+upperLimit = 10;
+arraySize = [1, 5];
+p3 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
+fprintf('%f ',p3);
+
 Ipow=zeros(1,s);
 fprintf('\nPower of I:\n');
 for i=1:s
