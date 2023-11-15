@@ -1,11 +1,11 @@
-I = [4, 4, 4, 4, 4];
+I = [4; 4; 4; 4; 4];
 s = length(I);
 fprintf('List Of I:\n');
 for i = 1:s
     fprintf('%d ', I(i));
 end
 
-I1 = zeros(1, s);
+I1 = zeros(s, 1);
 I1(1) = I(1);
 fprintf('\nFirst order I:\n');
 for i = 1:s-1
@@ -16,13 +16,13 @@ for i=1:s
     fprintf('%d ', I1(i));
 end
 
-DC = [50, 50, 50, 50, 55];
+DC = [50; 50; 50; 50; 55];
 s=length(DC);
 fprintf('List of DC:\n');
 for i=1:s
     fprintf('%d ', DC(i));
 end
-DC1 = zeros(1, s);
+DC1 = zeros(s, 1);
 DC1(1) = DC(1);
 fprintf('\nFirst order DC:\n');
 for i = 1:s-1
@@ -33,13 +33,13 @@ for i=1:s
     fprintf('%d ', DC1(i));
 end
 
-GP = [0.015, 0.02, 0.025, 0.03, 0.015];
+GP = [0.015; 0.02; 0.025; 0.03; 0.015];
 s=length(GP);
 fprintf('List of GP:\n');
 for i=1:s
     fprintf('%.3f ', GP(i));
 end
-GP1 = zeros(1, s);
+GP1 = zeros(s, 1);
 GP1(1) = GP(1);
 fprintf('\nFirst order GP:\n');
 for i = 1:s-1
@@ -50,13 +50,13 @@ for i=1:s
     fprintf('%.3f ', GP1(i));
 end
 
-MRR = [3.392, 3.847, 3.878, 3.708, 4.083];
+MRR = [3.392; 3.847; 3.878; 3.708; 4.083];
 s=length(MRR);
 fprintf('List of MRR:\n');
 for i=1:s
     fprintf('%.3f ', MRR(i));
 end
-MRR1 = zeros(1, s);
+MRR1 = zeros(s, 1);
 MRR1(1) = MRR(1);
 fprintf('\nFirst order MRR:\n');
 for i = 1:s-1
@@ -66,7 +66,7 @@ end
 for i=1:s
     fprintf('%.3f ', MRR1(i));
 end
-Z=zeros(2,s);
+Z=zeros(s, 2);
 fprintf('\nAverage of MRR1:\n');
 for i=2:s
     Z(i)=(MRR1(i-1)+MRR1(i))/2;
@@ -76,76 +76,76 @@ end
 fprintf('\ngamma1:');
 lowerLimit = 0;
 upperLimit = 1;
-arraySize = [1, 5];
+arraySize = [5, 1];
 gamma1 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
 fprintf('%f ',gamma1);
 
 fprintf('\ngamma2:');
 lowerLimit = 0.5;
 upperLimit = 1.5;
-arraySize = [1, 5];
+arraySize = [5, 1];
 gamma2 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
 fprintf('%f ',gamma2);
 
 fprintf('\ngamma3:');
 lowerLimit = 0.5;
 upperLimit = 1.5;
-arraySize = [1, 5];
+arraySize = [5, 1];
 gamma3 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
 fprintf('%f ',gamma3);
 
 fprintf('\np1:');
 lowerLimit = 0.5;
 upperLimit = 2;
-arraySize = [1, 5];
+arraySize = [5, 1];
 p1 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
 fprintf('%f ',p1);
 
 fprintf('\np2:');
 lowerLimit = 1;
 upperLimit = 2.5;
-arraySize = [1, 5];
+arraySize = [5, 1];
 p2 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
 fprintf('%f ',p2);
 
 fprintf('\np3:');
 lowerLimit = 1;
 upperLimit = 10;
-arraySize = [1, 5];
+arraySize = [5, 1];
 p3 = lowerLimit + (upperLimit - lowerLimit) * rand(arraySize);
 fprintf('%f ',p3);
 
-Ipow=zeros(1,s);
+Ipow=zeros(s,1);
 fprintf('\nPower of I:\n');
 for i=1:s
     Ipow(i)=I1(i).^gamma1(i);
     fprintf('%f ', Ipow(i));
 end
-DCpow=zeros(1,s);
+DCpow=zeros(s,1);
 fprintf('\nPower of DC:\n');
 for i=1:s
     DCpow(i)=DC1(i).^gamma2(i);
     fprintf('%f ',DCpow(i));
 end
-GPpow=zeros(1,s);
+GPpow=zeros(s,1);
 fprintf('\nPower of GP:\n');
 for i=1:s
     GPpow(i)=GP1(i).^gamma3(i);
     fprintf('%f ',GPpow(i));
 end
-Isin=zeros(1,s);
+Isin=zeros(s,1);
 fprintf('\nSin of I:\n');
 for i=1:s
     Isin(i)=I1(i)*(sin(2*p1(i)));
     fprintf('%.9f ',Isin(i));
 end
-DCsin=zeros(1,s);
+DCsin=zeros(s,1);
 fprintf('\nSin of DC:\n');
 for i=1:s
     DCsin(i)=DC1(i)*(sin(2*p2(i)));
     fprintf('%.9f ',DCsin(i));
 end
-GPsin=zeros(1,s);
+GPsin=zeros(s,1);
 fprintf('\nSin of GP:\n');
 for i=1:s
     GPsin(i)=GP1(i)*(sin(2*p3(i)));
