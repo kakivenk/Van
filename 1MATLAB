@@ -4,7 +4,7 @@ for i = 1:5
     fprintf('%d ', I(i));
 end
 
-I1 = zeros(s, 1);
+I1 = zeros(5, 1);
 I1(1) = I(1);
 fprintf('\nFirst order I:\n');
 for i = 1:4
@@ -62,7 +62,7 @@ end
 for i=1:5
     fprintf('%.3f ', MRR1(i));
 end
-Z=zeros(5, 2);
+Z=zeros(4, 1);
 fprintf('\nAverage of MRR1:\n');
 for i=2:5
     Z(i)=(MRR1(i-1)+MRR1(i))/2;
@@ -117,7 +117,7 @@ for i=1:5
     DCpow(i)=DC1(i).^gamma2(i);
     fprintf('%f ',DCpow(i));
 end
-GPpow=zeros(s,1);
+GPpow=zeros(5,1);
 fprintf('\nPower of GP:\n');
 for i=1:5
     GPpow(i)=GP1(i).^gamma3(i);
