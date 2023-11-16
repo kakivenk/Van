@@ -142,12 +142,21 @@ for i=1:5
     fprintf('%.9f ',GPsin(i));
 end
 One=[1; 1; 1; 1; 1];
-resultMatrix = [-Z(2:end), Ipow(2:end), DCpow(2:end), GPpow(2:end), Isin(2:end), DCsin(2:end), GPsin(2:end), One(2:end)];
+B = [-Z(2:end), Ipow(2:end), DCpow(2:end), GPpow(2:end), Isin(2:end), DCsin(2:end), GPsin(2:end), One(2:end)];
 fprintf('\nThe Matrix\n');
-[rows, cols] = size(resultMatrix);
+[rows, cols] = size(B);
 for i = 1:rows
     for j = 1:cols
-        fprintf('%f\t', resultMatrix(i, j));
+        fprintf('%f\t', B(i, j));
     end
     fprintf('\n'); 
+end
+BT=B.';
+B1=BT*B;
+B2=inv(B1);
+B3=B2*BT;
+Y=zeros(4,1);
+for i=1:4
+Y(i)=MRR(i+1);
+fprintf('%.4f ', Y(i));
 end
