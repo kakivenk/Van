@@ -68,6 +68,7 @@ for i=2:5
     Z(i)=(MRR1(i-1)+MRR1(i))/2;
     fprintf('%.4f ', Z(i));
 end
+Avg = [nan; Z];
 
 fprintf('\ngamma1:');
 lowerLimit = 0;
@@ -141,3 +142,5 @@ for i=1:5
     GPsin(i)=GP1(i)*(sin(2*p3(i)));
     fprintf('%.9f ',GPsin(i));
 end
+resultMatrix = [-Avg(2:end), Ipow(2:end), DCpow(2:end), GPpow(2:end), Isin(2:end), DCsin(2:end), GPsin(2:end)];
+disp(resultMatrix);
