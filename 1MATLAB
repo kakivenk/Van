@@ -64,7 +64,6 @@ for i=1:5
 end
 Z=zeros(5, 1);
 fprintf('\nAverage of MRR1:\n');
-Z(1)=0;
 for i=2:5
     Z(i)=(MRR1(i-1)+MRR1(i))/2;
     fprintf('%.4f ', Z(i));
