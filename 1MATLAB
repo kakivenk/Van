@@ -160,3 +160,12 @@ for i=1:4
 Y(i)=MRR(i+1);
 fprintf('%.4f ', Y(i));
 end
+B4=B3*Y;
+fprintf('\nThe Final Matrix\n');
+[rows, cols] = size(B4);
+for i = 1:rows
+    for j = 1:cols
+        fprintf('%f\t', B4(i, j));
+    end
+    fprintf('\n'); 
+end
