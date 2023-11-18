@@ -174,5 +174,5 @@ FinalB = struct;
 for i = 1:numel(names)
     FinalB.(names{i}) = B4(i);
 end
-for i=1:4
-x1=(1/1+(0.5*FinalB.a))FinalB.beta2*
+for i=2:5
+x(i)=(1/(1+(0.5*FinalB.a)))*((FinalB.beta1*Ipow(i))+(FinalB.beta2*DCpow(i))+(FinalB.beta3*GPpow(i)))+(1/(1+(0.5*FinalB.a)))*((FinalB.lambda1*Isin(i))+(FinalB.lambda2*DCsin(i))+(FinalB.lambda3*GPsin(i)))+(FinalB.c*(1+o.5*Final))
