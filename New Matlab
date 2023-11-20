@@ -1,6 +1,3 @@
-desiredTolerance = 0.1;
-iteration = 0;
-while true
 I = [4; 4; 4; 4; 4];
 fprintf('List Of I:\n');
 for i = 1:5
@@ -71,6 +68,10 @@ for i=2:5
     Z(i)=(MRR1(i-1)+MRR1(i))/2;
     fprintf('%.4f ', Z(i));
 end
+
+desiredTolerance = 0.1;
+iteration = 0;
+while true
 
 fprintf('\ngamma1:');
 lowerLimit = 0;
@@ -179,7 +180,7 @@ for i = 1:numel(names)
 end
 fprintf('\npMRR1\n');
 for i=2:5
-X(i)=(1/(1+(0.5*FinalB.a)))*((FinalB.beta1*Ipow(i))+(FinalB.beta2*DCpow(i))+(FinalB.beta3*GPpow(i)))+(1/(1+(0.5*FinalB.a)))*((FinalB.lambda1*Isin(i))+(FinalB.lambda2*DCsin(i))+(FinalB.lambda3*GPsin(i)))+(FinalB.c/(1+(0.5*FinalB.a)))-((FinalB.a/(1+(0.5*FinalB.a))*(MRR1(i-1))));
+X(i)=(1/(1+(0.5.*FinalB.a))).*((FinalB.beta1.*Ipow(i))+(FinalB.beta2.*DCpow(i))+(FinalB.beta3.*GPpow(i)))+(1/(1+(0.5.*FinalB.a))).*((FinalB.lambda1.*Isin(i))+(FinalB.lambda2.*DCsin(i))+(FinalB.lambda3.*GPsin(i)))+(FinalB.c/(1+(0.5.*FinalB.a)))-((FinalB.a/(1+(0.5.*FinalB.a)).*(MRR1(i-1))));
 fprintf('%f ',X(i));
 end
  conditionSatisfied = isApproximatelyEqual(mean(MRR1), mean(X), desiredTolerance);
