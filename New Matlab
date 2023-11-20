@@ -52,6 +52,8 @@ fprintf('List of MRR:\n');
 for i=1:5
     fprintf('%.3f ', MRR(i));
 end
+
+desiredTolerance = 0.5;
 MRR1 = zeros(5, 1);
 MRR1(1) = MRR(1);
 fprintf('\nFirst order MRR:\n');
@@ -68,10 +70,6 @@ for i=2:5
     Z(i)=(MRR1(i-1)+MRR1(i))/2;
     fprintf('%.4f ', Z(i));
 end
-
-desiredTolerance = 0.1;
-iteration = 0;
-while true
 
 fprintf('\ngamma1:');
 lowerLimit = 0;
@@ -183,17 +181,22 @@ for i=2:5
 X(i)=(1/(1+(0.5.*FinalB.a))).*((FinalB.beta1.*Ipow(i))+(FinalB.beta2.*DCpow(i))+(FinalB.beta3.*GPpow(i)))+(1/(1+(0.5.*FinalB.a))).*((FinalB.lambda1.*Isin(i))+(FinalB.lambda2.*DCsin(i))+(FinalB.lambda3.*GPsin(i)))+(FinalB.c/(1+(0.5.*FinalB.a)))-((FinalB.a/(1+(0.5.*FinalB.a)).*(MRR1(i-1))));
 fprintf('%f ',X(i));
 end
- conditionSatisfied = isApproximatelyEqual(mean(MRR1), mean(X), desiredTolerance);
- iteration = iteration + 1;
-fprintf('Iteration: %d, Mean Value (MRR1): %.4f, Mean Value (X): %.4f\n', iteration, mean(MRR1), mean(X));
-if conditionSatisfied
+
+iteration = 0;
+while true
+function result = isApproximatelyEqual(value1, value2, tolerance)
+    result = abs(value1 - value2) < tolerance;
+ conditionSatisfied = isApproximatelyEqual(mean(MRR1(2)), mean(X(2)), desiredTolerance);
+    iteration = iteration + 1;
+    fprintf('Iteration: %d, Mean Value (MRR1): %.4f, Mean Value (X): %.4f\n', iteration, mean(MRR1(2)), mean(X(2)));
+    
+    if conditionSatisfied
         break;
     end
 end
+end
+
 disp('Condition satisfied!');
 disp('Final Mean Values:');
-disp(mean(table1));
-disp(mean(table2));
-function result = isApproximatelyEqual(value1, value2, tolerance)
-    result = abs(value1 - value2) < tolerance;
-end
+disp(mean(MRR1(2)));
+disp(mean(X(2)));
