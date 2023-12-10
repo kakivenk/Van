@@ -1,0 +1,25 @@
+FROM debian:latest
+
+# Install netcat for communication
+RUN apt-get update && apt-get install -y netcat
+
+# Create named pipe for communication
+RUN mkfifo /tmp/chat_pipe
+
+# Start the chat server using netcat
+CMD nc -l -p 1234 < /tmp/chat_pipe
+
+
+
+FROM debian:latest
+
+# Install netcat for communication
+RUN apt-get update && apt-get install -y netcat
+
+# Link the named pipe from Container 1 and use netcat to send messages
+CMD echo "Hello from Container 2" | nc <container1_ip> 1234
+
+
+
+docker run --name container1 -d chat-container1
+docker run --name container2 --link container1 -d chat-container2
