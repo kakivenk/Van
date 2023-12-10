@@ -1,0 +1,36 @@
+# Use MySQL official image
+FROM mysql:latest
+
+# Set the MySQL root password
+ENV MYSQL_ROOT_PASSWORD=root
+
+# Create a database and user
+ENV MYSQL_DATABASE=mydatabase
+ENV MYSQL_USER=myuser
+ENV MYSQL_PASSWORD=mypassword
+
+# Expose MySQL port
+EXPOSE 3306
+
+
+
+
+# Use a base image with the required tools for your application
+FROM some-base-image:latest
+
+# Install any necessary dependencies for your application
+
+# Copy your application files into the container
+
+# Example: Connect to MySQL container
+# Install MySQL client
+RUN apt-get update && apt-get install -y mysql-client
+
+# Set environment variables for MySQL connection
+ENV DB_HOST=mysql-container
+ENV DB_PORT=3306
+ENV DB_USER=myuser
+ENV DB_PASSWORD=mypassword
+ENV DB_DATABASE=mydatabase
+
+# Your application commands go here
