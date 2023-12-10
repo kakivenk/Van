@@ -1,0 +1,16 @@
+FROM debian:latest
+
+# Install SSH server and client
+RUN apt-get update && apt-get install -y openssh-server openssh-client
+
+# Add user and configure SSH
+RUN useradd -m -s /bin/bash testuser
+RUN echo "testuser:testpassword" | chpasswd
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+RUN service ssh restart
+
+# Install ping utility
+RUN apt-get update && apt-get install -y iputils-ping
+
+# Add ping command to run on container startup
+CMD ["/bin/bash", "-c", "ping -c 3 google.com"]
