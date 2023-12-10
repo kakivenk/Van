@@ -1,0 +1,43 @@
+# Use the official Debian image
+FROM debian:latest
+
+# Install netcat
+RUN apt-get update && \
+    apt-get install -y netcat
+
+# Set up the entry point script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Specify the default command to run on container startup
+CMD ["/entrypoint.sh"]
+
+
+
+
+# Use the official Debian image
+FROM debian:latest
+
+# Install netcat
+RUN apt-get update && \
+    apt-get install -y netcat
+
+# Set up the entry point script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Specify the default command to run on container startup
+CMD ["/entrypoint.sh"]
+
+
+
+
+
+
+#!/bin/bash
+
+# Start netcat to listen on port 1234
+nc -l -p 1234
+
+# Replace the above line with the following if using netcat in listening mode is not supported
+# nc -l 1234
