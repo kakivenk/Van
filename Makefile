@@ -14,3 +14,26 @@ EXPOSE 22
 
 # Start SSH server on container startup
 CMD ["/usr/sbin/sshd", "-D"]
+
+
+
+
+# Makefile for creating Docker containers
+
+.PHONY: help
+help:
+	@echo "Usage: make <target>"
+	@echo "Targets:"
+	@echo "  ping-container      Build container with ping support"
+	@echo "  ssh-container       Build container with SSH support"
+	@echo "  clean               Remove containers and images"
+
+ping-container:
+	docker build -t ping-container -f Dockerfile.ping .
+
+ssh-container:
+	docker build -t ssh-container -f Dockerfile.ssh .
+
+clean:
+	docker stop $$(docker ps -a -q) && docker rm $$(docker ps -a -q)
+	docker rmi -f ping-container ssh-container
