@@ -1,0 +1,24 @@
+# Use the official Debian image
+FROM debian:latest
+
+# Create custom group
+RUN groupadd mygroup
+
+# Create custom users and add them to the custom group
+RUN useradd -m -s /bin/bash -G mygroup user1 && \
+    echo 'user1:user1password' | chpasswd
+
+RUN useradd -m -s /bin/bash -G mygroup user2 && \
+    echo 'user2:user2password' | chpasswd
+
+RUN useradd -m -s /bin/bash -G mygroup user3 && \
+    echo 'user3:user3password' | chpasswd
+
+# Set the default user to user1
+USER user1
+
+# Set the working directory
+WORKDIR /home/user1
+
+# Specify the default command to run on container startup
+CMD ["/bin/bash"]
