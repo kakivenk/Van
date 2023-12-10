@@ -1,0 +1,19 @@
+FROM ubuntu:latest
+
+# Install netcat for inter-container communication
+RUN apt-get update && apt-get install -y netcat
+
+# Define chat port and server address
+ENV CHAT_PORT 5555
+ENV SERVER_ADDR 127.0.0.1
+
+# Configure user
+RUN adduser -m -s /bin/bash chatuser
+RUN echo "chatuser:chatpassword" | chpasswd
+
+# Create a script to start the chat server
+RUN echo "nc -l $CHAT_PORT" > /home/chatuser/chat-server.sh
+RUN chmod +x /home/chatuser/chat-server.sh
+
+# Define default command for chatuser
+CMD ["/bin/bash", "-c", "sh /home/chatuser/chat-server.sh"]
