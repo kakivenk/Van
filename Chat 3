@@ -15,3 +15,15 @@ FROM debian
 
 # Send a message to Container A
 CMD echo "Hello from Container B!" > /tmp/chat_pipe
+
+
+
+
+# Use a base image
+FROM debian
+
+# Create a named pipe for communication
+RUN mkfifo /tmp/chat_pipe
+
+# Log received messages to a file
+CMD tail -f /tmp/chat_pipe > /tmp/received_messages.log
