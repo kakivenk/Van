@@ -1,0 +1,77 @@
+# Use the official MySQL image
+FROM mysql
+
+# Environment variables for MySQL configuration
+ENV MYSQL_ROOT_PASSWORD=rootpassword
+ENV MYSQL_DATABASE=mydatabase
+ENV MYSQL_USER=dbuser
+ENV MYSQL_PASSWORD=dbpassword
+
+# Copy SQL script to initialize the database
+COPY init.sql /docker-entrypoint-initdb.d/
+
+
+
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
+
+INSERT INTO users (username, email) VALUES
+    ('user1', 'user1@example.com'),
+    ('user2', 'user2@example.com');
+
+
+
+
+
+# Use an official Python runtime as a parent image
+FROM python:3.8
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy the current directory contents into the container
+COPY . .
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir mysql-connector-python
+
+# Run script.py when the container launches
+CMD ["python", "./script.py"]
+
+
+
+
+
+import mysql.connector
+
+# Connect to the MySQL server
+conn = mysql.connector.connect(
+    host="mysql-container",  # Use the MySQL container's name as the host
+    user="dbuser",
+    password="dbpassword",
+    database="mydatabase"
+)
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Example: Query the users table
+cursor.execute("SELECT * FROM users")
+rows = cursor.fetchall()
+
+# Display the results
+for row in rows:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
+
+
+
+
+
