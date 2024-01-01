@@ -1,0 +1,207 @@
+I = [4; 4; 4; 4; 4];
+fprintf('List Of I:\n');
+for i = 1:5
+    fprintf('%d ', I(i));
+end
+
+I1 = zeros(5, 1);
+I1(1) = I(1);
+fprintf('\nFirst order I:\n');
+for i = 1:4
+    I1(i+1) = I1(i) + I(i+1);
+end
+
+for i=1:5
+    fprintf('%d ', I1(i));
+end
+
+DC = [50; 50; 50; 50; 55];
+fprintf('List of DC:\n');
+for i=1:5
+    fprintf('%d ', DC(i));
+end
+DC1 = zeros(5, 1);
+DC1(1) = DC(1);
+fprintf('\nFirst order DC:\n');
+for i = 1:4
+    DC1(i+1) = DC1(i) + DC(i+1);
+end
+
+for i=1:5
+    fprintf('%d ', DC1(i));
+end
+
+GP = [0.015; 0.02; 0.025; 0.03; 0.015];
+fprintf('List of GP:\n');
+for i=1:5
+    fprintf('%.3f ', GP(i));
+end
+GP1 = zeros(5, 1);
+GP1(1) = GP(1);
+fprintf('\nFirst order GP:\n');
+for i = 1:4
+    GP1(i+1) = GP1(i) + GP(i+1);
+end
+
+for i=1:5
+    fprintf('%.3f ', GP1(i));
+end
+
+MRR = [3.392; 3.847; 3.878; 3.708; 4.083];
+fprintf('List of MRR:\n');
+for i=1:5
+    fprintf('%.3f ', MRR(i));
+end
+
+MRR1 = zeros(5, 1);
+MRR1(1) = MRR(1);
+fprintf('\nFirst order MRR:\n');
+for i = 1:4
+    MRR1(i+1) = MRR1(i) + MRR(i+1);
+end
+
+for i=1:5
+    fprintf('%.3f ', MRR1(i));
+end
+Z=zeros(5, 1);
+fprintf('\nAverage of MRR1:\n');
+for i=2:5
+    Z(i)=(MRR1(i-1)+MRR1(i))/2;
+    fprintf('%.4f ', Z(i));
+end
+
+desiredTolerance=0.01;
+iteration = 0;
+
+fprintf('\ngamma1:');
+lowerLimit = 0;
+upperLimit = 1;
+gamma1 = lowerLimit + (upperLimit - lowerLimit) * rand(5,1);
+fprintf('%f ',gamma1);
+
+fprintf('\ngamma2:');
+lowerLimit = 0.5;
+upperLimit = 1.5;
+gamma2 = lowerLimit + (upperLimit - lowerLimit) * rand(5,1);
+fprintf('%f ',gamma2);
+
+fprintf('\ngamma3:');
+lowerLimit = 0.5;
+upperLimit = 1.5;
+gamma3 = lowerLimit + (upperLimit - lowerLimit) * rand(5,1);
+fprintf('%f ',gamma3);
+
+fprintf('\np1:');
+lowerLimit = 0.5;
+upperLimit = 2;
+p1 = lowerLimit + (upperLimit - lowerLimit) * rand(5,1);
+fprintf('%f ',p1);
+
+fprintf('\np2:');
+lowerLimit = 1;
+upperLimit = 2.5;
+p2 = lowerLimit + (upperLimit - lowerLimit) * rand(5,1);
+fprintf('%f ',p2);
+
+fprintf('\np3:');
+lowerLimit = 1;
+upperLimit = 10;
+p3 = lowerLimit + (upperLimit - lowerLimit) * rand(5,1);
+fprintf('%f ',p3);
+
+Ipow=zeros(5,1);
+fprintf('\nPower of I:\n');
+for i=1:5
+    Ipow(i)=I1(i).^gamma1(i);
+    fprintf('%f ', Ipow(i));
+end
+DCpow=zeros(5,1);
+fprintf('\nPower of DC:\n');
+for i=1:5
+    DCpow(i)=DC1(i).^gamma2(i);
+    fprintf('%f ',DCpow(i));
+end
+GPpow=zeros(5,1);
+fprintf('\nPower of GP:\n');
+for i=1:5
+    GPpow(i)=GP1(i).^gamma3(i);
+    fprintf('%f ',GPpow(i));
+end
+Isin=zeros(5,1);
+fprintf('\nSin of I:\n');
+for i=1:5
+    Isin(i)=I1(i)*(sin(2*p1(i)));
+    fprintf('%.9f ',Isin(i));
+end
+DCsin=zeros(5,1);
+fprintf('\nSin of DC:\n');
+for i=1:5
+    DCsin(i)=DC1(i)*(sin(2*p2(i)));
+    fprintf('%.9f ',DCsin(i));
+end
+GPsin=zeros(5,1);
+fprintf('\nSin of GP:\n');
+for i=1:5
+    GPsin(i)=GP1(i)*(sin(2*p3(i)));
+    fprintf('%.9f ',GPsin(i));
+end
+One=[1; 1; 1; 1; 1];
+B = [-Z(2:end), Ipow(2:end), DCpow(2:end), GPpow(2:end), Isin(2:end), DCsin(2:end), GPsin(2:end), One(2:end)];
+fprintf('\nThe Matrix\n');
+[rows, cols] = size(B);
+for i = 1:rows
+    for j = 1:cols
+        fprintf('%f\t', B(i, j));
+    end
+    fprintf('\n'); 
+end
+BT=B.';
+B1=BT*B;
+B2=inv(B1);
+B3=B2*BT;
+Y=zeros(4,1);
+for i=1:4
+Y(i)=MRR(i+1);
+fprintf('%.4f ', Y(i));
+end
+B4=B3*Y;
+fprintf('\nThe Final Matrix\n');
+[rows, cols] = size(B4);
+for i = 1:rows
+    for j = 1:cols
+        fprintf('%f\t', B4(i, j));
+    end
+    fprintf('\n'); 
+end
+names = {'a', 'beta1', 'beta2', 'beta3', 'lambda1', 'lambda2', 'lambda3', 'c'};
+FinalB = struct;
+for i = 1:numel(names)
+    FinalB.(names{i}) = B4(i);
+end
+fprintf('\npMRR1\n');
+for i=2:5
+X(i)=(1/(1+(0.5.*FinalB.a))).*((FinalB.beta1.*Ipow(i))+(FinalB.beta2.*DCpow(i))+(FinalB.beta3.*GPpow(i)))+(1/(1+(0.5.*FinalB.a))).*((FinalB.lambda1.*Isin(i))+(FinalB.lambda2.*DCsin(i))+(FinalB.lambda3.*GPsin(i)))+(FinalB.c/(1+(0.5.*FinalB.a)))-((FinalB.a/(1+(0.5.*FinalB.a)).*(MRR1(i-1))));
+fprintf('%f ',X(i));
+end
+
+for i = 2:5
+    diff = MRR1(i) - X(i);
+    fprintf('Iteration: %d, Difference (MRR1 - X) for i=%d: %.4f\n', iteration, i, diff);
+
+    if abs(diff) > desiredTolerance
+        fprintf('Condition not satisfied.\n');
+        break;  % Exit the loop if the condition is not met
+    end
+
+    iteration = iteration + 1;
+end
+
+% Display the final result
+if abs(diff) <= desiredTolerance
+fprintf('Condition satisfied!\n');
+    fprintf('Final Mean Values:\n');
+    for i = 2:5
+        fprintf('Mean(MRR1(%d)): %.4f\n', i, mean(MRR1(i)));
+        fprintf('Mean(X(%d)): %.4f\n', i, mean(X(i)));
+    end
+end
