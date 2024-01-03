@@ -208,8 +208,8 @@ if iteration > 100
 end
 
     fprintf('Final Mean Values:\n');
-    for i = 2:5
-        fprintf('Mean(MRR1(%d)): %.4f\n', i, mean(MRR1(i)));
-        fprintf('Mean(X(%d)): %.4f\n', i, mean(X(i)));
-    end
+   % for i = 2:5
+    %    fprintf('Mean(MRR1(%d)): %.4f\n', i, mean(MRR1(i)));
+     %   fprintf('Mean(X(%d)): %.4f\n', i, mean(X(i)));
+   % end
 end
