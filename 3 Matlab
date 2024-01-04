@@ -74,7 +74,7 @@ desiredTolerance=0.01;
 iteration = 1;
 condition = 0; 
 while true
-diff = zeros(1, 5);
+diff = zeros(5, 1);
 %fprintf('\ngamma1:');
 lowerLimit = 0;
 upperLimit = 1;
@@ -189,13 +189,13 @@ end
 fprintf('Iteration: %d\n', iteration);
 
 for i = 2:5
-    diff = MRR1(i) - X(i);
+    diff(i) = MRR1(i) - X(i);
     fprintf('Iteration: %d, Diff for i=%d: %.4f\n', iteration, i, diff);
 
 end
 
 % Display the final result
-if 0<abs(diff) && abs(diff) <= desiredTolerance
+ if all(0 <= abs(diff) & abs(diff) <= desiredTolerance)
         fprintf('Condition satisfied!\n');
         break;  % Exit the loop if the condition is met
         end
