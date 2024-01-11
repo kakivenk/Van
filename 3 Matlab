@@ -132,19 +132,19 @@ end
 Isin=zeros(5,1);
 %fprintf('\nSin of I:\n');
 for i=1:5
-    Isin(i)=I1(i)*(sin(2*p1(i)));
+    Isin(i)=I1(i)*(sin(i*p1(i)));
 %    fprintf('%.9f ',Isin(i));
 end
 DCsin=zeros(5,1);
 %fprintf('\nSin of DC:\n');
 for i=1:5
-    DCsin(i)=DC1(i)*(sin(2*p2(i)));
+    DCsin(i)=DC1(i)*(sin(i*p2(i)));
  %   fprintf('%.9f ',DCsin(i));
 end
 GPsin=zeros(5,1);
 %fprintf('\nSin of GP:\n');
 for i=1:5
-    GPsin(i)=GP1(i)*(sin(2*p3(i)));
+    GPsin(i)=GP1(i)*(sin(i*p3(i)));
  %   fprintf('%.9f ',GPsin(i));
 end
 One=[1; 1; 1; 1; 1];
