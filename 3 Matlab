@@ -70,7 +70,7 @@ for i=2:5
     fprintf('%.4f ', Z(i));
 end
 
-desiredTolerance=0.01;
+desiredTolerance=1;
 iteration = 1;
 condition = 0; 
 while true
@@ -190,7 +190,7 @@ fprintf('Iteration: %d\n', iteration);
 
 for i = 2:5
     diff(i) = MRR1(i) - X(i);
-    fprintf('Iteration: %d, Diff for i=%d: %.4f\n', iteration, i, diff);
+    fprintf('Iteration: %d, Diff for i=%d: %.4f\n', iteration, i, diff(i));
 
 end
 
