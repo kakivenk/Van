@@ -70,7 +70,7 @@ for i=2:5
     fprintf('%.4f ', Z(i));
 end
 
-desiredTolerance=1;
+desiredTolerance=3;
 iteration = 1;
 condition = 0; 
 while true
@@ -162,7 +162,7 @@ fprintf('\nThe Transpose of B\n');
 [rows, cols] = size(BT);
 for i = 1:rows
     for j = 1:cols
-        fprintf('%f\t', BT(i, j));
+        fprintf('%.4f\t', BT(i, j));
     end
     fprintf('\n'); 
 end
@@ -171,7 +171,7 @@ fprintf('\nMultiplication of BTranspose and B\n');
 [rows, cols] = size(B1);
 for i = 1:rows
     for j = 1:cols
-        fprintf('%f\t', B1(i, j));
+        fprintf('%.4f\t', B1(i, j));
     end
     fprintf('\n'); 
 end
@@ -180,7 +180,7 @@ fprintf('\nThe Inverse of BTranspose X B\n');
 [rows, cols] = size(B2);
 for i = 1:rows
     for j = 1:cols
-        fprintf('%f\t', B2(i, j));
+        fprintf('%.4f\t', B2(i, j));
     end
     fprintf('\n'); 
 end
@@ -189,7 +189,7 @@ fprintf('\nMultiplication of (Inverse of BTranspose X B) X (BTranspose)\n');
 [rows, cols] = size(B3);
 for i = 1:rows
     for j = 1:cols
-        fprintf('%f\t', B3(i, j));
+        fprintf('%.4f\t', B3(i, j));
     end
     fprintf('\n'); 
 end
@@ -203,7 +203,7 @@ fprintf('\nThe Final Matrix\n');
 [rows, cols] = size(B4);
 for i = 1:rows
     for j = 1:cols
-        fprintf('%f\t', B4(i, j));
+        fprintf('%.4f\t', B4(i, j));
     end
     fprintf('\n'); 
 end
