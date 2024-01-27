@@ -1,0 +1,49 @@
+#import <Foundation/Foundation.h>
+#include "lex.yy.c"
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        // Assuming input code is stored in a file named "input_code.txt"
+        FILE *file = fopen("input_code.txt", "r");
+        if (!file) {
+            NSLog(@"Failed to open input file.");
+            return 1;
+        }
+        
+        // Set Flex to read from the input file
+        yyin = file;
+        
+        // Call the lexer to tokenize input code
+        int token;
+        while ((token = yylex()) != 0) {
+            // Do something with each token
+            switch (token) {
+                case IDENTIFIER:
+                    NSLog(@"Identifier: %s", yytext);
+                    break;
+                case INTEGER_CONSTANT:
+                    NSLog(@"Integer Constant: %s", yytext);
+                    break;
+                case FLOAT_CONSTANT:
+                    NSLog(@"Float Constant: %s", yytext);
+                    break;
+                case STRING_CONSTANT:
+                    NSLog(@"String Constant: %s", yytext);
+                    break;
+                case CHARACTER_CONSTANT:
+                    NSLog(@"Character Constant: %s", yytext);
+                    break;
+                case UNRECOGNIZED_TOKEN:
+                    NSLog(@"Unrecognized Token: %s", yytext);
+                    break;
+                // Add cases for other tokens as needed
+                default:
+                    break;
+            }
+        }
+        
+        // Close the input file
+        fclose(file);
+    }
+    return 0;
+}
