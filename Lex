@@ -1,0 +1,36 @@
+%{
+#include <stdio.h>
+%}
+
+// Regular expressions for tokens
+DIGIT           [0-9]
+LETTER          [a-zA-Z]
+ID              {LETTER}({LETTER}|{DIGIT})*
+INT_CONST       {DIGIT}+
+FLOAT_CONST     {DIGIT}+"."{DIGIT}+
+STRING_CONST    "\""([^"\\]|\\.)*\""
+CHAR_CONST      '\''([^'\\]|\\.)*\''
+// Add more regular expressions for data types, operators, statements, etc.
+
+%%
+// Rules for tokens
+{ID}            { printf("IDENTIFIER: %s\n", yytext); }
+{INT_CONST}     { printf("INTEGER CONSTANT: %s\n", yytext); }
+{FLOAT_CONST}   { printf("FLOAT CONSTANT: %s\n", yytext); }
+{STRING_CONST}  { printf("STRING CONSTANT: %s\n", yytext); }
+{CHAR_CONST}    { printf("CHARACTER CONSTANT: %s\n", yytext); }
+// Add rules for other tokens
+
+// Ignore whitespace and comments
+[ \t\n]         ;
+\/\/.*          /* ignore single-line comments */
+\/\*[^*]*\*\/   /* ignore multi-line comments */
+
+.               { printf("UNRECOGNIZED TOKEN: %s\n", yytext); }
+
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
