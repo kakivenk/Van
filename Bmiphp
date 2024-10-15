@@ -1,3 +1,4 @@
+#Changes made by Vaneesha
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $inp1 = $_POST['inp1'];
