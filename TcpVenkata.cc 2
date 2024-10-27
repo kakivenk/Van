@@ -1,0 +1,259 @@
+/*
+ * Copyright (c) 2014 Natale Patriciello <natale.patriciello@gmail.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation;
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ */
+
+#define NS_LOG_APPEND_CONTEXT                                                                      \
+    {                                                                                              \
+        std::clog << Simulator::Now().GetSeconds() << " ";                                         \
+    }
+
+#include "tcp-venkata.h"
+#include "ns3/log.h"
+
+NS_LOG_COMPONENT_DEFINE("TcpVenkata");
+
+namespace ns3
+{
+
+NS_OBJECT_ENSURE_REGISTERED(TcpVenkata);
+
+TypeId
+TcpVenkata::GetTypeId()
+{
+    static TypeId tid =
+        TypeId("ns3::TcpVenkata")
+            .SetParent<TcpSocketBase>()
+            .AddConstructor<TcpVenkata>()
+            .SetGroupName("Internet")
+            .AddAttribute("FastConvergence",
+                          "Enable (true) or disable (false) fast convergence",
+                          BooleanValue(true),
+                          MakeBooleanAccessor(&TcpVenkata::m_fastConvergence),
+                          MakeBooleanChecker())
+            .AddAttribute("TcpFriendliness",
+                          "Enable (true) or disable (false) TCP friendliness",
+                          BooleanValue(true),
+                          MakeBooleanAccessor(&TcpVenkata::m_tcpFriendliness),
+                          MakeBooleanChecker())
+            .AddAttribute("Beta",
+                          "Beta for multiplicative decrease",
+                          DoubleValue(0.7),
+                          MakeDoubleAccessor(&TcpVenkata::m_beta),
+                          MakeDoubleChecker<double>(0.0))
+            .AddAttribute("HyStart",
+                          "Enable (true) or disable (false) hybrid slow start algorithm",
+                          BooleanValue(true),
+                          MakeBooleanAccessor(&TcpVenkata::m_hystart),
+                          MakeBooleanChecker())
+            .AddAttribute("HyStartLowWindow",
+                          "Lower bound cWnd for hybrid slow start (segments)",
+                          UintegerValue(16),
+                          MakeUintegerAccessor(&TcpVenkata::m_hystartLowWindow),
+                          MakeUintegerChecker<uint32_t>())
+            .AddAttribute("HyStartDetect",
+                          "Hybrid Slow Start detection mechanisms:"
+                          "packet train, delay, both",
+                          EnumValue(HybridSSDetectionMode::BOTH),
+                          MakeEnumAccessor<HybridSSDetectionMode>(&TcpVenkata::m_hystartDetect),
+                          MakeEnumChecker(HybridSSDetectionMode::PACKET_TRAIN,
+                                          "PACKET_TRAIN",
+                                          HybridSSDetectionMode::DELAY,
+                                          "DELAY",
+                                          HybridSSDetectionMode::BOTH,
+                                          "BOTH"))
+            .AddAttribute("HyStartMinSamples",
+                          "Number of delay samples for detecting the increase of delay",
+                          UintegerValue(8),
+                          MakeUintegerAccessor(&TcpVenkata::m_hystartMinSamples),
+                          MakeUintegerChecker<uint8_t>())
+            .AddAttribute("HyStartAckDelta",
+                          "Spacing between ack's indicating train",
+                          TimeValue(MilliSeconds(2)),
+                          MakeTimeAccessor(&TcpVenkata::m_hystartAckDelta),
+                          MakeTimeChecker())
+            .AddAttribute("HyStartDelayMin",
+                          "Minimum time for hystart algorithm",
+                          TimeValue(MilliSeconds(4)),
+                          MakeTimeAccessor(&TcpVenkata::m_hystartDelayMin),
+                          MakeTimeChecker())
+            .AddAttribute("HyStartDelayMax",
+                          "Maximum time for hystart algorithm",
+                          TimeValue(MilliSeconds(1000)),
+                          MakeTimeAccessor(&TcpVenkata::m_hystartDelayMax),
+                          MakeTimeChecker())
+            .AddAttribute("VenkataDelta",
+                          "Delta Time to wait after fast recovery before adjusting param",
+                          TimeValue(MilliSeconds(10)),
+                          MakeTimeAccessor(&TcpVenkata::m_venkataDelta),
+                          MakeTimeChecker())
+            .AddAttribute("CntClamp",
+                          "Counter value when no losses are detected (counter is used"
+                          " when incrementing cWnd in congestion avoidance, to avoid"
+                          " floating point arithmetic). It is the modulo of the (avoided)"
+                          " division",
+                          UintegerValue(20),
+                          MakeUintegerAccessor(&TcpVenkata::m_cntClamp),
+                          MakeUintegerChecker<uint8_t>())
+            .AddAttribute("C",
+                          "Venkata Scaling factor",
+                          DoubleValue(0.4),
+                          MakeDoubleAccessor(&TcpVenkata::m_c),
+                          MakeDoubleChecker<double>(0.0));
+    return tid;
+}
+
+TcpVenkata::TcpVenkata()
+    : TcpCongestionOps(),
+      m_cWndCnt(0),
+      m_lastMaxCwnd(0),
+      m_bicOriginPoint(0),
+      m_bicK(0.0),
+      m_delayMin(Time::Min()),
+      m_epochStart(Time::Min()),
+      m_found(false),
+      m_roundStart(Time::Min()),
+      m_endSeq(0),
+      m_lastAck(Time::Min()),
+      m_venkataDelta(Time::Min()),
+      m_currRtt(Time::Min()),
+      m_sampleCnt(0)
+{
+    NS_LOG_FUNCTION(this);
+}
+
+TcpVenkata::TcpVenkata(const TcpVenkata& sock)
+    : TcpCongestionOps(sock),
+      m_fastConvergence(sock.m_fastConvergence),
+      m_beta(sock.m_beta),
+      m_hystart(sock.m_hystart),
+      m_hystartDetect(sock.m_hystartDetect),
+      m_hystartLowWindow(sock.m_hystartLowWindow),
+      m_hystartAckDelta(sock.m_hystartAckDelta),
+      m_hystartDelayMin(sock.m_hystartDelayMin),
+      m_hystartDelayMax(sock.m_hystartDelayMax),
+      m_hystartMinSamples(sock.m_hystartMinSamples),
+      m_initialCwnd(sock.m_initialCwnd),
+      m_cntClamp(sock.m_cntClamp),
+      m_c(sock.m_c),
+      m_cWndCnt(sock.m_cWndCnt),
+      m_lastMaxCwnd(sock.m_lastMaxCwnd),
+      m_bicOriginPoint(sock.m_bicOriginPoint),
+      m_bicK(sock.m_bicK),
+      m_delayMin(sock.m_delayMin),
+      m_epochStart(sock.m_epochStart),
+      m_found(sock.m_found),
+      m_roundStart(sock.m_roundStart),
+      m_endSeq(sock.m_endSeq),
+      m_lastAck(sock.m_lastAck),
+      m_venkataDelta(sock.m_venkataDelta),
+      m_currRtt(sock.m_currRtt),
+      m_sampleCnt(sock.m_sampleCnt)
+{
+    NS_LOG_FUNCTION(this);
+}
+
+std::string
+TcpVenkata::GetName() const
+{
+    return "TcpVenkata";
+}
+
+void
+TcpVenkata::HystartReset(Ptr<const TcpSocketState> tcb)
+{
+    NS_LOG_FUNCTION(this);
+
+    m_roundStart = m_lastAck = Simulator::Now();
+    m_endSeq = tcb->m_highTxMark;
+    m_currRtt = Time::Min();
+    m_sampleCnt = 0;
+}
+
+void
+TcpVenkata::IncreaseWindow(Ptr<TcpSocketState> tcb, uint32_t segmentsAcked)
+{
+    NS_LOG_FUNCTION(this << tcb << segmentsAcked);
+
+    if (!tcb->m_isCwndLimited)
+    {
+        NS_LOG_DEBUG("No increase because current cwnd " << tcb->m_cWnd
+                                                         << " is not limiting the flow");
+        return;
+    }
+
+    if (tcb->m_cWnd < tcb->m_ssThresh)
+    {
+        if (m_hystart && tcb->m_lastAckedSeq > m_endSeq)
+        {
+            HystartReset(tcb);
+        }
+
+        // Increase cwnd based on the segments acknowledged in slow start
+        tcb->m_cWnd += segmentsAcked * tcb->m_segmentSize;
+        segmentsAcked = 0;
+
+        NS_LOG_INFO("In SlowStart, updated to cwnd " << tcb->m_cWnd << " ssthresh "
+                                                     << tcb->m_ssThresh);
+    }
+
+    if (tcb->m_cWnd >= tcb->m_ssThresh && segmentsAcked > 0)
+    {
+        m_cWndCnt += segmentsAcked;
+        uint32_t cnt = Update(tcb, segmentsAcked);
+
+        // Check if enough ACKs have been received to increment cwnd
+        if (m_cWndCnt >= cnt)
+        {
+            tcb->m_cWnd += tcb->m_segmentSize;
+            m_cWndCnt -= cnt;
+            NS_LOG_INFO("In CongAvoid, updated to cwnd " << tcb->m_cWnd);
+        }
+        else
+        {
+            NS_LOG_INFO("Not enough segments have been ACKed to increment cwnd."
+                        "Until now "
+                        << m_cWndCnt << " cnd " << cnt);
+        }
+    }
+}
+
+uint32_t
+TcpVenkata::Update(Ptr<TcpSocketState> tcb, uint32_t segmentsAcked)
+{
+    NS_LOG_FUNCTION(this << tcb << segmentsAcked);
+    uint32_t cnt = 0;
+
+    // Avoid division by zero
+    if (tcb->m_cWnd <= 0)
+    {
+        return 1; // Default value if cwnd is zero
+    }
+
+    cnt = (m_cntClamp == 0) ? 1 : m_cntClamp;
+    return cnt;
+}
+
+void
+TcpVenkata::CongestionAvoidance(Ptr<TcpSocketState> tcb, uint32_t segmentsAcked)
+{
+    NS_LOG_FUNCTION(this << tcb << segmentsAcked);
+
+    // Ensure the congestion window size is correctly updated
+    IncreaseWindow(tcb, segmentsAcked);
+}
+
+} // namespace ns3
